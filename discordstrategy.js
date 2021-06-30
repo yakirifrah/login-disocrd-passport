@@ -24,6 +24,7 @@ passport.use(
 			clientID: '827119255111467008',
 			clientSecret: '9WGLqqJ4tQta9wEDhpf5c0qDN5FzDCnO',
 			callbackURL: '/api/auth/discord/redirect',
+			proxy: true,
 			scope: ['identify', 'email'],
 		},
 		async (accessToken, refreshToken, profile, done) => {
