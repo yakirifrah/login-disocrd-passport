@@ -18,8 +18,6 @@ router.get('/logout', (req, res) => {
 	}
 });
 // eslint-disable-next-line no-use-before-define
-router.get('/', (req, res) => {
-	res.send(req.user);
-});
+
 
 module.exports = router;

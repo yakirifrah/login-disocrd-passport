@@ -33,7 +33,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/api/auth', passportAuth);
-
+app.get('/', (req, res) => {
+	if (!req?.user) {
+		res.send("Dude you're not authired");
+	}
+	res.send(req.user);
+});
 const httpServer = http.createServer(app);
 connectDB().then(() => console.log('DB connected!'));
 httpServer.listen(process.env.PORT || 5000, () => {
