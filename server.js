@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json());
 
-app.use('/api/auth', discordAuth);
+app.use('/api/discord', discordAuth);
 
 const httpServer = http.createServer(app);
 httpServer.listen(process.env.PORT || 5000, () => {
