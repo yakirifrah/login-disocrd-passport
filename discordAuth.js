@@ -6,12 +6,10 @@ const fetch = require('node-fetch');
 const redirect = encodeURIComponent('https://login-discord-passport.herokuapp.com/api/auth/discord/redirect');
 router.get('/login', (req,res)=>{
 	res.redirect(
-		`https://discord.com/api/oauth2/authorize?client_id=${
-			827119255111467008
-		}&scope=${"identify email".replace(
+		`https://discord.com/api/oauth2/authorize?client_id=827119255111467008&scope="identify email".replace(
 			/ /g,
 			'%20'
-		)}&response_type=code&redirect_uri=${redirect}`
+		)&response_type=code&redirect_uri=${redirect}`
 	);
 });
 router.get('/callback', async (req,res,next)=>{
