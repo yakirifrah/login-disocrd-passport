@@ -4,10 +4,10 @@ const btoa = require('btoa');
 const fetch = require('node-fetch');
 
 const redirect = encodeURIComponent('https://login-discord-passport.herokuapp.com/api/auth/discord/redirect');
-router.get('/discord', (req,res)=>{
+router.get('/login', (req,res)=>{
 	res.redirect(
 		`https://discord.com/api/oauth2/authorize?client_id=${
-			process.env.CLIENT_ID
+			827119255111467008
 		}&scope=${"identify email".replace(
 			/ /g,
 			'%20'
