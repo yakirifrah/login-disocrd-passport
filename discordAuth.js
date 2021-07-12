@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const btoa = require('btoa');
 const fetch = require('node-fetch');
 
-const redirect = encodeURIComponent('https://login-discord-passport.herokuapp.com/api/discord/callback');
+const redirect = encodeURIComponent('http://localhost:5000/api/discord/callback');
 router.get('/login', (req,res)=>{
 	res.redirect(
 		`https://discord.com/api/oauth2/authorize?client_id=827119255111467008&scope=identify%20email&response_type=code&redirect_uri=${redirect}`
@@ -18,7 +18,7 @@ router.get('/callback', async (req,res,next)=>{
 		client_id: 827119255111467008,
 		client_secret: '9WGLqqJ4tQta9wEDhpf5c0qDN5FzDCnO',
 		code,
-		redirect_uri:'https://login-discord-passport.herokuapp.com/api/discord/callback',
+		redirect_uri:'http://localhost:5000/api/discord/callback',
 		scope: "identify email",
 	};
 	const response = await fetch('https://discord.com/api/oauth2/token', {
@@ -44,7 +44,7 @@ router.get('/callback', async (req,res,next)=>{
 	res.redirect(`/success/?token=${access_token}`);
 });
 
-router.get('/me',async(req,res,next)=>{
+router.get('/me/t',async(req,res,next)=>{
 	const fetchDiscordUserInfo = await fetch(
 		'https://discord.com/api/users/@me',
 		{
